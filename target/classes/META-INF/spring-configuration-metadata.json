@@ -1,0 +1,67 @@
+{
+  "groups": [
+    {
+      "name": "hjjjjconfig",
+      "type": "com.example.netdisk.controller.FileController",
+      "sourceType": "com.example.netdisk.controller.FileController"
+    },
+    {
+      "name": "hjjjjconfig",
+      "type": "com.example.netdisk.controller.FileUploadController",
+      "sourceType": "com.example.netdisk.controller.FileUploadController"
+    }
+  ],
+  "properties": [
+    {
+      "name": "hjjjjconfig.download-base-path",
+      "type": "java.lang.String",
+      "sourceType": "com.example.netdisk.controller.FileController"
+    },
+    {
+      "name": "hjjjjconfig.download-base-path",
+      "type": "java.lang.String",
+      "sourceType": "com.example.netdisk.controller.FileUploadController"
+    },
+    {
+      "name": "hjjjjconfig.file-info-service",
+      "type": "com.example.netdisk.service.FileInfoService",
+      "sourceType": "com.example.netdisk.controller.FileController"
+    },
+    {
+      "name": "hjjjjconfig.file-info-service",
+      "type": "com.example.netdisk.service.FileInfoService",
+      "sourceType": "com.example.netdisk.controller.FileUploadController"
+    },
+    {
+      "name": "hjjjjconfig.file-utils",
+      "type": "com.example.netdisk.utils.FileUtils",
+      "sourceType": "com.example.netdisk.controller.FileUploadController"
+    },
+    {
+      "name": "hjjjjconfig.progress-utils",
+      "type": "com.example.netdisk.utils.ProgressUtils",
+      "sourceType": "com.example.netdisk.controller.FileUploadController"
+    },
+    {
+      "name": "hjjjjconfig.upload-path",
+      "type": "java.lang.String",
+      "sourceType": "com.example.netdisk.controller.FileUploadController"
+    },
+    {
+      "name": "hjjjjconfig.upload-temp-path",
+      "type": "java.lang.String",
+      "sourceType": "com.example.netdisk.controller.FileUploadController"
+    },
+    {
+      "name": "hjjjjconfig.upload-utils",
+      "type": "com.example.netdisk.utils.UploadUtils",
+      "sourceType": "com.example.netdisk.controller.FileController"
+    },
+    {
+      "name": "hjjjjconfig.upload-utils",
+      "type": "com.example.netdisk.utils.UploadUtils",
+      "sourceType": "com.example.netdisk.controller.FileUploadController"
+    }
+  ],
+  "hints": []
+}

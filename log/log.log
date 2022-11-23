@@ -1,0 +1,11 @@
+2022-11-22 23:48:32.662  INFO 25288 --- [main] c.e.netdisk.HjjjjNetdiskApplication      : Starting HjjjjNetdiskApplication using Java 1.8.0_341 on LAPTOP-98P92DRQ with PID 25288 (C:\Users\16023\IdeaProjects\HJJJJ_Netdisk\target\classes started by 16023 in C:\Users\16023\IdeaProjects\HJJJJ_Netdisk)
+2022-11-22 23:48:32.665 DEBUG 25288 --- [main] c.e.netdisk.HjjjjNetdiskApplication      : Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-11-22 23:48:32.666  INFO 25288 --- [main] c.e.netdisk.HjjjjNetdiskApplication      : No active profile set, falling back to 1 default profile: "default"
+2022-11-22 23:48:33.499  INFO 25288 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2022-11-22 23:48:33.507  INFO 25288 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-22 23:48:33.507  INFO 25288 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-22 23:48:33.635  INFO 25288 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2022-11-22 23:48:33.636  INFO 25288 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 923 ms
+2022-11-22 23:48:34.289  INFO 25288 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path '/api'
+2022-11-22 23:48:34.300  INFO 25288 --- [main] c.e.netdisk.HjjjjNetdiskApplication      : Started HjjjjNetdiskApplication in 2.159 seconds (JVM running for 3.216)
+2022-11-22 23:48:45.553  INFO 25288 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...

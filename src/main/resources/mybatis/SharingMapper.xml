@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis配置文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.netdisk.dao.SharingDao">
+
+    <!--AddSharingInfo-->
+    <insert id="AddSharingInfo" parameterType="com.example.netdisk.DBEntity.SharingEntity">
+        insert into sharing(SharingCode, UserName, FileId,GivenPeriod)
+        VALUE (#{SharingCode},#{UserName},#{FileId},#{GivenPeriod});
+        <selectKey resultType="java.lang.Integer" keyProperty="Id" >
+            SELECT @@IDENTITY AS ID
+        </selectKey>
+    </insert>
+
+    <!--QuerySharingCodeByCode-->
+    <select id="QuerySharingCodeByCode" parameterType="com.example.netdisk.pojo.query.SharingQuery"
+            resultType="com.example.netdisk.DBEntity.SharingEntity">
+        select *
+        from sharing
+        <where>
+            <if test="SharingCode !=null and SharingCode !=''">
+                and SharingCode = #{SharingCode}
+            </if>
+<!--            <if test="GivenPeriod !=null and GivenPeriod !=''">-->
+<!--                and GivenPeriod &lt;#{GivenPeriod}-->
+<!--            </if>-->
+        </where>
+    </select>
+
+</mapper>

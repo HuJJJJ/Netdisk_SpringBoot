@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis配置文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.netdisk.dao.UserDao">
+
+    <!--GetUser-->
+    <select id="GetUser" parameterType="com.example.netdisk.pojo.query.UserQuery"
+            resultType="com.example.netdisk.DBEntity.UserEntity">
+        select *
+        from user
+        <where>
+            <if test="UserName !=null and UserName !=''">
+                and UserName = #{UserName}
+            </if>
+            <if test="Password !=null and Password !=''">
+                and Password = #{Password}
+            </if>
+        </where>
+    </select>
+
+    <!--GetUsers-->
+    <select id="GetUsers" resultType="com.example.netdisk.DBEntity.UserEntity">
+        select *
+        from user;
+    </select>
+
+    <!--AddUser-->
+    <insert id="AddUser" parameterType="com.example.netdisk.DBEntity.UserEntity">
+        insert into user(NickName, UserName, Password)
+            VALUE (#{NickName},#{UserName},#{Password});
+        <selectKey resultType="java.lang.Integer" keyProperty="id" >
+            SELECT @@IDENTITY AS ID
+        </selectKey>
+    </insert>
+
+</mapper>

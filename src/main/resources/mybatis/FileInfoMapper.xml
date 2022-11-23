@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis配置文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.netdisk.dao.FileInfoDao">
+
+    <!--AddFileInfo-->
+    <insert id="AddFileInfo" parameterType="com.example.netdisk.DBEntity.FileInfoEntity">
+        insert into fileinfo(FileName,NewFileName,FilePath,Type,IsDelete,UserId,MD5,FolderId)
+        VALUE (#{FileName},#{NewFileName},#{FilePath},#{Type},#{IsDelete},#{UserId},#{MD5},#{FolderId});
+        <selectKey resultType="java.lang.Integer" keyProperty="id">
+            SELECT @@IDENTITY AS ID
+        </selectKey>
+    </insert>
+
+    <!--DeleteFile-->
+    <update id="DeleteFile" parameterType="com.example.netdisk.DBEntity.FileInfoEntity">
+        update fileinfo
+        set IsDelete=1
+        where Id = #{FileId}
+    </update>
+
+    <!--MoveFile-->
+    <update id="MoveFile" parameterType="com.example.netdisk.DBEntity.FileInfoEntity">
+        update fileinfo
+        set FolderId= #{FolderId}
+        where Id = #{Id}
+    </update>
+
+    <!--GetFileInfoByUserIdAndFolderId-->
+    <select id="GetFileInfoByUserIdAndFolderId" parameterType="com.example.netdisk.pojo.query.FileInfoQuery"
+            resultType="com.example.netdisk.DBEntity.FileInfoEntity">
+        select *
+        from fileinfo
+        <where>
+            <if test="UserId!=-1">
+                and UserId = #{UserId}
+            </if>
+            <if test="FolderId!=-1">
+                and FolderId = #{FolderId}
+            </if>
+            <if test="IsDelete!=-1">
+                and IsDelete = #{IsDelete}
+            </if>
+        </where>
+    </select>
+
+
+    <!--FileInfoRename-->
+    <update id="FileInfoRename" parameterType="com.example.netdisk.DBEntity.FileInfoEntity">
+        update fileinfo
+        set FileName= #{NewName}
+        where Id = #{FileId}
+    </update>
+
+
+    <!--GetFileInfoByMD5-->
+    <select id="GetFileInfoByMD5" parameterType="com.example.netdisk.pojo.query.FileInfoQuery"
+            resultType="com.example.netdisk.DBEntity.FileInfoEntity">
+        select *
+        from fileinfo
+        <where>
+            <if test="MD5 !=null and MD5 !=''">
+                and MD5 = #{MD5}
+            </if>
+        </where>
+    </select>
+
+    <!--GetFileInfoByFileId-->
+    <select id="GetFileInfoByFileId" parameterType="com.example.netdisk.pojo.query.FileInfoQuery"
+            resultType="com.example.netdisk.DBEntity.FileInfoEntity">
+        select *
+        from fileinfo
+        <where>
+            <if test="FileId !=0">
+                and Id = #{FileId}
+            </if>
+
+            <if test="IsDelete!=-1">
+                and IsDelete = #{IsDelete}
+            </if>
+        </where>
+    </select>
+
+    <!--GetFileInfoByUserId-->
+    <select id="GetFileInfoByUserId" parameterType="com.example.netdisk.pojo.query.FileInfoQuery"
+            resultType="com.example.netdisk.DBEntity.FileInfoEntity">
+        select *
+        from fileinfo
+        <where>
+            <if test="UserId !=0">
+                and UserId = #{UserId}
+            </if>
+
+            <if test="IsDelete!=-1">
+                and IsDelete = #{IsDelete}
+            </if>
+        </where>
+    </select>
+
+    <!--GetFileInfoByType-->
+    <select id="GetFileInfoByType" parameterType="com.example.netdisk.pojo.query.FileInfoQuery"
+            resultType="com.example.netdisk.DBEntity.FileInfoEntity">
+        select *
+        from fileinfo
+        <where>
+            <if test="UserId !=0">
+                and UserId = #{UserId}
+            </if>
+            <if test="Type!=-2">
+                and Type = #{Type}
+            </if>
+            <if test="IsDelete!=-1">
+                and IsDelete = #{IsDelete}
+            </if>
+
+        </where>
+    </select>
+
+</mapper>
